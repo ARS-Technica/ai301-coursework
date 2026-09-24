@@ -15,9 +15,6 @@ wrong label is not graded.
 
 https://github.com/codepath/pathreview-ai301-fa26-s3/issues/66
 
-[The individual Path Review issue page. A link to the repository or the issue list
-does not satisfy this field.]
-
 **Verdict output**
 
 [Your skill's live-mode output for this issue, pasted verbatim and ending with the
