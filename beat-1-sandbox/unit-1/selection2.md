@@ -102,6 +102,21 @@ failing test test_empty_chunk candidate mechanisms."}
 
 Quote source text directly in each field below. Paraphrase does not satisfy them.
 
+
+[The agreement score of each run you did, in order. A single run is a complete answer if
+only one run occurred. **The last score in your list must match the agreement line in the
+`eval-run.txt` you committed** — that file is the record of your final run.]
+
+Run #1 - 17/20
+
+Run #2 - 14/20
+
+Run #3 - 10/20
+
+Run #4 - 18/20
+
+Run #5 - 19/20
+
 Graded live against rubric.md, ascending from #64. Three accepted in the first three, so I stopped at #66 — issues #67–#73 were not graded.
 
   Graded live against rubric.md, ascending from #64. Three accepted in the first three, so I stopped at #66 — issues #67–#73 were not graded.
