@@ -124,7 +124,7 @@ reasoning that produced your rubric's result.]
 
 Graded live against rubric.md, ascending from #64. Three accepted in the first three, so I stopped at #66 — issues #67–#73 were not graded.
 
-`issue-03` Graded live against rubric.md, ascending from #64. Three accepted in the first three, so I stopped at #66 — issues #67–#73 were not graded.
+`issue-66` Graded live against rubric.md, ascending from #64. Three accepted in the first three, so I stopped at #66 — issues #67–#73 were not graded.
 
 Repo facts gathered once (capture date 2026-09-21), shared by all three:
 - archived: false; last push to any branch 2026-09-16T21:50:20Z (5 days)
