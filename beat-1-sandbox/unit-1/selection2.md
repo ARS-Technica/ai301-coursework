@@ -102,6 +102,7 @@ failing test test_empty_chunk candidate mechanisms."}
 
 Quote source text directly in each field below. Paraphrase does not satisfy them.
 
+**Run history**
 
 [The agreement score of each run you did, in order. A single run is a complete answer if
 only one run occurred. **The last score in your list must match the agreement line in the
@@ -111,11 +112,15 @@ Run #1 - 17/20
 
 Run #2 - 14/20
 
-Run #3 - 10/20
+Run #3 - 18/20
 
-Run #4 - 18/20
+Run #4 - 19/20
 
-Run #5 - 19/20
+**Issue analysis**
+
+[One scored issue, identified by id (`issue-01` through `issue-20`; the `calib-`
+issues are not scored). State your rubric's decision, the gold label, and the
+reasoning that produced your rubric's result.]
 
 Graded live against rubric.md, ascending from #64. Three accepted in the first three, so I stopped at #66 — issues #67–#73 were not graded.
 
