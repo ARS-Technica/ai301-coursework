@@ -13,6 +13,8 @@ wrong label is not graded.
 
 ## Selected issue
 
+**Issue link**
+
 https://github.com/codepath/pathreview-ai301-fa26-s3/issues/66
 
 **Verdict output**
