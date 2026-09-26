@@ -43,19 +43,58 @@ packages designed around that family.
 
 | Check | Evidence | Pass condition | Weight |
 |---|---|---|---|
-| policy-permits |Repo facts: the contribution policy: line, including any quoted policy guidelines, CONTRIBUTING.md, or template excerpts.| Passes if the repository explicitly permits AI-assisted contributions or no AI policy is mentioned.  Passes if conditional disclosure rules such as policies requiring disclosure in the PR description, testing requirements, or personal comprehension of the code. Fails strictly on an explicit, blanket ban prohibiting AI-generated or AI-assisted contributions Fails if it includes any statement of "no AI code accepted" or "AI-generated pull requests will be closed". Grade unclear if policy state that AI rules are pending or unspecified, or under an active review process. | Required |
+# Rubric: is this a good first issue?
+
+<!--
+THIS IS THE PART YOU WRITE. The skill in SKILL.md executes whatever checks
+you define here. It ships empty on purpose: the judgment is your work.
+
+A filled rubric must contain:
+
+1. At least one row in the checks table. Each row needs all four columns:
+   - Check: a short name (used in the output JSON).
+   - Evidence: exactly what to look at, and where. Name the source
+     (repo-facts block, issue body, comment thread, or the locations in
+     references/evidence-guide.md). "The repo" is not a source; "the last
+     5 default-branch commit dates" is.
+   - Pass condition: a condition someone else could apply and get your
+     answer. Prefer thresholds with numbers ("a maintainer commented
+     within 30 days") over adjectives ("maintainer is responsive").
+   - Weight: `required` (a fail here rejects the issue) or `preferred`
+     (never changes the verdict; a nice-to-have that helps rank the
+     issues you accept).
+
+2. A verdict rule below the table: how the check grades combine into
+   accept or reject, including how `unclear` is treated. The verdict
+   space is binary. If you write no rule for `unclear`, the skill treats
+   it as fail.
+
+Cover what actually kills first contributions. The lecture named four
+families: the maintainer is alive, the repo is in use, the scope fits a
+newcomer, and nobody else is already on it. A rubric that ignores a family
+will fail eval issues designed around that family.
+-->
+
+## Checks
+
+| Check | Evidence | Pass condition | Weight |
+|---|---|---|---|
+| complex-prose | log, comment body | 12th grade reading level or less. Easy English that a high school student can understand. Industry standard technical jargon is acceptable. Avoide corporate buzzwords. | Required |
+| policy-permits |Repo facts: the contribution policy: line, including any quoted policy guidelines, CONTRIBUTING.md, or template excerpts.| Passes if the repository explicitly permits AI-assisted contributions or no AI policy is mentioned.  Passes if conditional disclosure rules such as policies requiring disclosure in the PR description, testing requirements, or personal comprehension of the code. Fails strictly on an explicit, blanket ban prohibiting AI-generated or AI-assisted contributions Fails if it includes any statement of "no AI code accepted", "we do not accept AI-generated code", or "AI-generated pull requests will be closed". Grade unclear if policy state that AI rules are pending or unspecified, or under an active review process. | Required |
+| punctuation-check | log, comment body | Free of standard AI formatting tropes: No inline emojis. No em-dashes (—). No decorative arrows (->). No superficial opening/closing pleasantries such as "Thanks for raising this!". No frequent use of acronyms. No ASCII art. | Required |
+| syllable-check | comment body | The number of syllables in any one word in the comment. There should be no more that 5 syllables in any one word. The comment should be concise. | Preferred |
 | symptom-alignment | output excerpt read against the issue's description | For bugs: the actual output or error trace matches the specific bug described in the issue. For enhancements or missing tests: the baseline report demonstrates the current missing functionality, failing test output, or initial state described in the issue ticket. | Required |
 | tone-check | comment body | Communicates professionally and directly. No begging.  No threatening.  No demanding. | Preferred | 
 | tools-record | repro report's environment record | The Environment is reproducible.  The report names the libraries and tools used.  The report lists of the version of the libraries and tools.  The report lists the OS used. | Required |
 | traceable-proof | log, comment body | Reproduction steps are provided. Could someone unfamiliar with this project re-run the steps accurately.  Detailed information is given about libraries, tools, and specs. | Required |
 
 
-## Verdict rule
-
 <!-- State how the grades above combine into accept or reject, and how
 unclear is treated. Example shape (write your own): "accept if every
-required check passes; preferred checks never change the verdict;
-unclear counts as fail." -->
+required check passes; preferred checks never change the verdict, they
+rank accepted issues; unclear counts as fail." -->
+
+## Verdict rule
 
 **Verdict Determination:** 
   - An issue receives an **`accept`** verdict if and only if **all required checks pass**.
@@ -65,12 +104,16 @@ unclear counts as fail." -->
   - Candidates with an `accept` verdict are ranked by the number of passing preferred checks. 
 
 
-## Removed:
+## Rejected:
+
+## | human-management | log, comment body, repo facts | Fail if an Issue Ticket was Generated by an AI Bot, such as Cursor Bot, rather than a human maintainer or end user. A human must have created the ticket. Fail if there is no maintainer in thread for the majority of recent updated issues. | Required |
+## | large-scale | repository facts | Fail if a repository shows a combination of more than 1000 open issues and pull requests.  Fail if the codebase spans multiple subpackages. |---|
+
+
+## Should be Removed in Favor of voice-guide:
 
 ## | complex-prose | log, comment body | 12th grade reading level or less. Easy English that a high school student can understand. Industry standard technical jargon is acceptable. Avoide corporate buzzwords. | Required |
-## | punctuation-check | log, comment body | Free of standard AI formatting tropes: No inline emojis. No em-dashes (`—`). No decorative arrows (`->`). No superficial opening/closing pleasantries such as "Thanks for raising this!". No frequent use of acronyms. No ASCII art. | Required |
+## | punctuation-check | log, comment body | Free of standard AI formatting tropes: No inline emojis. No em-dashes (`—`). No decorative arrows (`->`). No frequent use of acronyms. No ASCII art. | Required |
 ## | syllable-check | comment body | The number of syllables in any one word in the comment.  There should be no more that 5 syllables in any one word. The comment should be concise. | Preferred |
 
-## Reason:
-
-## Three of your required checks (complex-prose, punctuation-check, syllable-check) grade the shape and style of the prose, not whether the proof holds; you already encoded those same preferences in voice-guide.md, so the rubric is now duplicating a personal style standard as a hard gate. Your own run shows the cost: pkg-10 was rejected purely on punctuation-check even though its evidence was sound, and because no check reads the repo's stated contribution policy, the disclosure category came back 0/1. 
+ 
