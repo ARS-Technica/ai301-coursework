@@ -44,17 +44,11 @@ packages designed around that family.
 | Check | Evidence | Pass condition | Weight |
 |---|---|---|---|
 | complex-prose | log, comment body | 12th grade reading level or less. Easy English that a high school student can understand. Industry standard technical jargon is acceptable. Avoide corporate buzzwords. | Required |
-
 | punctuation-check | log, comment body | Free of standard AI formatting tropes: No inline emojis. No em-dashes (`—`). No decorative arrows (`->`). No superficial opening/closing pleasantries such as "Thanks for raising this!". No frequent use of acronyms. No ASCII art. | Required |
-
 | symptom-alignment | output excerpt read against the issue's description | The actual output or error trace produced in the report matches the specific bug reported in the original issue ticket, rather than an unrelated build or syntax error. | Required |
-
 | syllable-check | comment body | The number of syllables in any one word in the comment.  There should be no more that 5 syllables in any one word. The comment should be concise. | Preferred |
-
 | tone-check | comment body | Communicates professionally and directly. No begging.  No threatening.  No demanding. | Preferred | 
-
 | tools-record | repro report's environment record | The Environment is reproducible.  The report names the libraries and tools used.  The report lists of the version of the libraries and tools.  The report lists the OS used. | Required |
-
 | traceable-proof | log, comment body | Reproduction steps are provided. Could someone unfamiliar with this project re-run the steps accurately.  Detailed information is given about libraries, tools, and specs. | Required |
 
 
