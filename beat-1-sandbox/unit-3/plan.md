@@ -93,7 +93,7 @@ python -m pytest "tests/unit/test_batch_processor.py::TestBatchEmbeddingProcesso
 ```
 PASSED tests/unit/test_batch_processor.py::TestBatchEmbeddingProcessor::test_empty_chunks_list_returns_empty
 1 passed in 0.25s
-```
+
 
 4. Re-run the full unit test suite (python -m pytest tests/unit/) to ensure no existing tests regress.
 
