@@ -7,35 +7,35 @@ The application logs through `structlog`, which is not configured to capture or 
 This root cause was verified during local reproduction on commit `2f4e82f`. 
 
 ### Quoted Reproduction Evidence
-> **Environment:**
-> - OS: Windows 11 (`win32`)
-> - Python: 3.13.5
-> - pytest: 9.1.1
-> - structlog: 26.1.0
->
-> **Command executed:**
-> ```powershell
-> python -m pytest "tests/unit/test_batch_processor.py::TestBatchEmbeddingProcessor::test_empty_chunks_list_returns_empty" -vv -s --runxfail
-> ```
->
-> **Observed Output:**
-> The warning message was emitted to stderr during the test run:
-> ```text
-> Empty chunks list provided to BatchEmbeddingProcessor
-> ```
->
-> The test then failed specifically at the `caplog` assertion:
-> ```text
-> >       assert "Empty chunks list" in caplog.text or any(
->             "empty" in record.message.lower() for record in caplog.records
->         )
-> E       AssertionError: assert ('Empty chunks list' in '' or False)
-> E        +  where '' = <_pytest.logging.LogCaptureFixture object at 0x000001F4BBDFCC20>.text
-> E        +  and   False = any(...)
-> ```
->
-> **Conclusion:**
-> `structlog` emits the warning during execution, but because it is not propagated to stdlib logging in `tests/conftest.py`, pytest's `caplog` fixture fails to capture the output.
+**Environment:**
+ - OS: Windows 11 (`win32`)
+ - Python: 3.13.5
+ - pytest: 9.1.1
+ - structlog: 26.1.0
+
+**Command executed:**
+```powershell
+python -m pytest "tests/unit/test_batch_processor.py::TestBatchEmbeddingProcessor::test_empty_chunks_list_returns_empty" -vv -s --runxfail
+```
+
+**Observed Output:**
+The warning message was emitted to stderr during the test run:
+```text
+Empty chunks list provided to BatchEmbeddingProcessor
+```
+
+The test then failed specifically at the `caplog` assertion:
+```text
+       assert "Empty chunks list" in caplog.text or any(
+            "empty" in record.message.lower() for record in caplog.records
+         )
+E       AssertionError: assert ('Empty chunks list' in '' or False)
+E        +  where '' = <_pytest.logging.LogCaptureFixture object at 0x000001F4BBDFCC20>.text
+E        +  and   False = any(...)
+```
+
+**Conclusion:**
+`structlog` emits the warning during execution, but because it is not propagated to stdlib logging in `tests/conftest.py`, pytest's `caplog` fixture fails to capture the output.
 
 ---
 
@@ -105,4 +105,4 @@ Fixture Ordering: Ensuring structlog is configured before any module-level logge
 ---
 
 ## Deviations
-
+No deviations were made from the original plan. The fix was implemented exactly as proposed by configuring `structlog` standard library logging integration in `tests/conftest.py` and removing the `xfail` marker from `test_empty_chunks_list_returns_empty` in `tests/unit/test_batch_processor.py`.
