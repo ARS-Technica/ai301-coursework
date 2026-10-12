@@ -29,3 +29,7 @@ python -m pytest "tests/unit/test_batch_processor.py::TestBatchEmbeddingProcesso
 python -m pytest "tests/unit/test_batch_processor.py::TestBatchEmbeddingProcessor::test_empty_chunks_list_returns_empty" -vv -s
 # Output: Passes successfully with caplog catching the log message.
 
+## Notes for Reviewers
+AI-use disclosure: I used AI collaborative assistance as a programming partner to help draft and verify test reproduction logic, configure structlog test setup settings, and format documentation for this pull request.
+
+Plan deviations: None, implemented exactly as planned.
