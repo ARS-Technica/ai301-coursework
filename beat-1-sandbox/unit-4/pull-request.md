@@ -27,8 +27,11 @@ fields.
 
 **Run history**
 
-categories: clear-accept 5/7  not-tested 4/4  silent-drift 4/4  standards-wall 2/2  unreviewable 3/3
+1.) categories: clear-accept 5/7  not-tested 4/4  silent-drift 4/4  standards-wall 2/2  unreviewable 3/3
 agreement: 18/20 scored items  (bar: 18/20: PASS)
+
+2.) categories: clear-accept 7/7  not-tested 4/4  silent-drift 4/4  standards-wall 2/2  unreviewable 3/3
+agreement: 20/20 scored items  (bar: 18/20: PASS)
 
 **Package analysis**
 
